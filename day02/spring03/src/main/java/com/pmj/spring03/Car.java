@@ -14,7 +14,7 @@ public class Car {
 		System.out.println("차 이름은" + name + " "+"포인트" + point);
 	}
 
-	// 가변인자자
+	// 가변인자
 	public void printCarName(String...name){
 		for(String n : name){
 			System.out.println(n);

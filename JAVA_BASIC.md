@@ -90,6 +90,8 @@
     - 논리연산 : &&, ||, !
     - 관계연산 : ==, <, >, <=, >=, !=
 
+    - [Java문법실습](./day01/spring01/src/main/java/com/pmj/spring01/Spring01Application.java)
+
 
 #### 흐름제어
 - 조건(분기)문 : if문, switch문
@@ -136,6 +138,9 @@
         result = "로그인실패!";
     }
     ```
+
+    - [Java문법실습](./day01/spring02/src/main/java/com/pmj/spring02/Spring02Application.java)
+
 - 반복문 : for문, while문, do=while문
     - for문 - 대표적인 반복문
 
@@ -145,6 +150,7 @@
         실행코드 블럭;
     }
     ```
+    - [Java문법실습](./day01/spring03/src/main/java/com/pmj/spring03/Spring03Application.java)
 
     - while문 - 조건식이 참인동안 계속 반복
     ```java
@@ -160,10 +166,14 @@
     }while(조건식);
     ```
 
+    - [Java문법실습](./day02/spring01/src/main/java/com/pmj/spring01/Spring01Application.java)
+
     - 반복제어 키워드 : break, continue
         - for문, while문 내에서 사용
         - break - 조건에 맞아 반복문을 탈출
         - continue - 특수 조건만 비켜서 반복문을 계속할 때
+
+    
 
 #### 배열
 - 여러 데이터가 필요할 경우 하나의 변수로 처리 가능
@@ -181,7 +191,7 @@
     변수명[1] = 값; // 값 할당
     System.out.println(변수명[1]); // 값 사용
     ```
-- 배열에 사용할 메서드 - Arrays 객체를 사용용
+- 배열에 사용할 메서드 - Arrays 객체를 사용
     - sort()         : 배열 정렬
     - toString()     : 배열 객체ID를 출력
     - asList()       : 배열을 리스트로 변경(List)
@@ -191,6 +201,8 @@
 
 - Java 컬렉션 프레임워크 -  배열을 좀 더 기능적으로 강화한 객체
     - **List**, Stack, Vector, ArrayList, HashSet, HashMap(파이선의 딕셔너리와 동일), HashTable
+
+- [Java문법실습](./day02/spring02/src/main/java/com/pmj/spring02/Spring02Application.java)
 
 #### 메서드
 - 함수와 동일. 객체지향언어에서는 함수를 메서드로 사용
@@ -215,3 +227,86 @@
 - **null**
     - 프로그래밍 상에 모든 곳에서 null이라고 사용
     - 파이썬만 None으로 사용
+
+- [Java문법실습](./day02/spring03/src/main/java/com/pmj/spring03/Spring03Application.java)
+
+#### 객체 / 클래스
+- 개요
+    - 현실세계를 반영하여서 프로그래밍을 하는 기법
+    - Object-Oriented Programing - OOP, 객체지향 프로그래밍
+        - C++, Java, Python, C#, Go, Rust, Kotlin ...
+    - vs. Procedure-Oriented Programing - 절차적 프로그래밍
+        - C, SQL, ...
+
+- 클래스 개요
+    - 객체를 정의하는 틀
+    - 명사(멤버변수/속성)와 동사(멤버메서드)의 집합
+
+    ```java
+    class NewCar{
+        // 명사부분(멤버변수/속성)
+        String model_name;
+        String company;
+        String color;
+        int release_year;
+        String fuel_type;
+
+        // 동사부분(메서드)
+        public void doAccelerate(){ // 가속
+        }
+
+        public void doBreak(){ // 중지
+        }
+        public void changeGear(){ // 기어변동
+        }
+        public void turnLeft(){ // 좌회전
+        }
+        public void turnRight(){ // 우회전
+        }
+
+        // 생성자메서드(파이썬 __init__와 유사)
+        NewCar(){
+            model_name = "없음";
+            company = "현대자동차";
+        }
+        NewCar(String model_name, String company, int release_year){
+            this.model_name = model_name;
+            this.company = company;
+            this.release_year = release_year;
+        }
+    }
+    ```
+
+- 인스턴스(instance)
+    - 객체를 만드는 클래스를 new로 새로 생성
+    - 두개의 인스턴스하 하나를 가르칠 수 없음
+
+    ```java
+    NewCar avante = new NewCar(); // 기본생성자
+    NewCar tesla = new NewCar("X3","Tesla",2021); // 인자초기화 생성자
+
+    tesla.turnRight(); // 우회전
+    ```
+
+- [Java문법실습](./day02/spring04/src/main/java/com/pmj/spring04/Spring04Application.java)
+
+#### 상속
+- 개요
+    - 객체지향에 중요한 의미의 개념
+    - 부모클래스가 가지고 있는 속성, 메서드를 가져다 쓸 수 있는 기능
+    - 예 - 동물 -> 포유류, 양서류, 파충류 등으로 구분
+
+- 특징
+    - 부모(슈퍼)클래서에서 정의된 변수와 메서드를 불려받는다
+    - 새로운 변수와 메서드를 추가할 수 있다
+    - 부모클래스에서 물려받은 메서드를 수정할 수 있다(오버라이딩)
+    - 동일한 부모클래스를 상속받은 하위 자식클래스들은 타입에 호환된다
+
+    ```java
+    [접근제어자] class 클래스명 extends 부모클래스명{
+        // 부모클래스에 없는 멤버변수, 메서드 추가
+        // 부모 메서드를 오버라이딩
+    }
+    ```
+
+- [Java문법실습](./day02/spring05/src/main/java/com/pmj/spring05/Spring05Application.java)
