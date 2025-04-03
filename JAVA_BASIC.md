@@ -383,3 +383,19 @@
     }
     ```
 
+- 예외클래스 : ArithmeticException, ArrayIndexOutOfBoundsException, NullPointerException
+- 모든 예외클래스는 Exception 클래스를 상속받아서 생성
+- 단순히 Exception 클래스로 예외처리 해도 무방
+
+##### 예외던지기
+- 예외를 직접 처리하지 않고 상위 클래스나 메서드에게 처리를 인가
+
+    ```java
+    리턴값 호출메서드(인자...) throws Exception{
+        예외가 발생할 코드블럭;
+        throw new Exception();
+    }
+    ...
+    try
+    ```
+
