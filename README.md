@@ -252,6 +252,9 @@
     - [Gradle](https://gradle.org/install/)
     - C:\Gradle 위치에 압축해제
     - sysdm.cpl 환경변수 GRADLE_HOME 경로 입력, 확인(JAVA_HOME과 동일)
+
+    <img src="./image/sb005.png" width="700">
+
     - VS Code 설정
 
     <img src="./image/sb003.png" width="700">
