@@ -426,3 +426,32 @@
     - 날짜와 시간을 처리할 때 사용
 
 - [Java문법실습](./day04/spring01/src/main/java/com/pmj/spring01/Spring01Application.java)
+
+
+#### 제네릭
+- 파이썬과 다르게 Java는 단일형만 배열이나 컬렉션에서 사용할 수 있음
+- Object 타입으로 지정하면 무슨 형이든 다 할당 가능
+- `다양한 타입의 객체들을 다루는 메서드나 컬렉션 클래스를 컴파일 과정에서 안전하게 타입체크를 해주는 기능`
+- 장점
+    - 객체 생성 시 개발자가 원하는 타입을 지정가능
+    - 타입 안정성 제공
+    - 의도하지 않은 타입의 객체가 저장되는 것을 차단, 오류방지
+    - 형변환의 번거로움이 없음
+
+```java
+class 클래스명<T>{
+    T 변수;
+    // getter/setter
+}
+
+public static void main(String[] args){
+    클래스명<String> 변수명 = new 클래스명<>();
+}
+```
+
+- T는 가변타입, String / int / double 다 지정 가능
+- T, P, K, TP 등 가변타입의 명칭은 편하게 지정
+
+#### 원시타입의 틀래스
+- int, double, float, byte 등 소문자 타입은 C와 같은 예전언어를 배운 사람의 편의성을 위해 추가한 기능
+- Integer, Double, Float, Byte 등 대문자로 시작하는 타입이 진짜 Java
