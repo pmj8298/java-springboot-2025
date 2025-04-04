@@ -249,6 +249,22 @@
     - 제네릭, 컬렉션, 프레임워크, 입출력, 람다식, 스트림API
 - Spring Boot 시작
 - Gradle 오류 해결 방법
+    - [Gradle](https://gradle.org/install/)
+    - C:\Gradle 위치에 압축해제
+    - sysdm.cpl 환경변수 GRADLE_HOME 경로 입력, 확인(JAVA_HOME과 동일)
+    - VS Code 설정
+
+    <img src="./image/sb003.png" width="700">
+
+    - Gradle Build server: Enabled 기본 on -> off
+
+    <img src="./image/sb004.png" width="700">
+
+    - Gradle Home -> 환경변수 입력한 GRADLE_HOME의 경로 입력
+    - Gradle Java Home -> 환경변수 JAVA_HOME의 경로 입력
+
+    - VS Code 재시작
+
 ## 5일차
 
 ## 6일차(06/26)
