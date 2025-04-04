@@ -473,3 +473,16 @@ public static void main(String[] args){
 
 ##### Collection 인터페이스
 - Lsit, Queue, Set 인터페이스 상위 인터페이스
+- 리스트 인터페이스
+
+    ```java
+    ArrayList<String> list  = new ArrayList<>(); // 권장안함
+    Collection<String> list = new ArrayList<>(); // 일반적이진 않음
+    List<String> list       = new ArrayList<>(); // 권장
+    ```
+
+- 셋 인터페이스
+    - HashSet
+
+- 맵 인터페이스
+    - HashMap
