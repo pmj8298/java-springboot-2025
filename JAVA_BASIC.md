@@ -452,6 +452,8 @@ public static void main(String[] args){
 - T는 가변타입, String / int / double 다 지정 가능
 - T, P, K, TP 등 가변타입의 명칭은 편하게 지정
 
+- [Java문법실습](./day04/spring02/src/main/java/com/pmj/spring02/Spring02Application.java)
+
 #### 원시타입의 틀래스
 - int, double, float, byte 등 소문자 타입은 C와 같은 예전언어를 배운 사람의 편의성을 위해 추가한 기능
 - Integer, Double, Float, Byte 등 대문자로 시작하는 타입이 진짜 Java
@@ -486,3 +488,40 @@ public static void main(String[] args){
 
 - 맵 인터페이스
     - HashMap
+
+- [Java문법실습](./day04/spring03/src/main/java/com/pmj/spring03/Spring03Application.java)
+
+#### 람다식
+- 함수형 프로그래밍 언어의 특징을 객체지향 언어에 녹여넣은 것
+- 익명 함수로 부르기도 함
+- 코드의 간결성 : 코딩 구문이 확 줄어듦
+
+    ```java
+    // 기존방식
+    [접근제어자] 리턴타입 메서드명(매개변수,...){
+        코드블럭,
+    }
+    // 예시
+    public String helloJava(){
+        return "Hello, Java!";
+    }
+
+    // 람다식
+    (매개변수, ...) -> { 코드블럭; }
+    // 예시
+    () -> "Hello, Java!"; // 한번만 실행되고 끝남
+    ```
+
+#### 함수형 인터페이스
+- 객체지향 언어인 Java에서 함수형 처리를 위해서 함수형 인터페이스가 필요
+- 인터페이스 내에 하나의 추상메서드만 갖도록 제한해줌
+- @FunctionalInterface 어노테이션을 사용 권장
+
+#### 스트림 API
+- 함수형 인터페이스로 데이터를 추상화하고 처리하는데 자주 사용되는 함수들을 정의해놓은 것
+- 특징
+    - 원본 데이터를 변경안함
+    - 일회성
+    - 내부 반복으로 작업 처리
+
+- [Java문법실습](./day04/spring04/src/main/java/com/pmj/spring04/Spring04Application.java)
