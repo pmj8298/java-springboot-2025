@@ -336,6 +336,8 @@
         - set + 멤버변수명(입력 파라미터) 형태로 생성
         - 내부로직으로 입력값 필터링
 
+-  [Java문법실습](./day02/spring05/src/main/java/com/pmj/spring05/Spring05Application.java)
+
 #### Object 클래스
 - 모든 클래스의 조상 클래스, extends를 사용하지 않아도 항상 상속됨
     - java.lang.Object
@@ -344,7 +346,7 @@
 #### 추상 클래스
 - 구체적인 내용이 포함되지 않은 클래스
 - 반드시 자식 클래스에서 오버라이딩으로 구현
-- 추후 다식 학습요망!
+- `추후 다식 학습요망!`
 
 #### 인터페이스
 - 상수로 추상메서드로만 구성된 클래스의 한 형태
@@ -368,6 +370,8 @@
 
 - 스프링의 의존성 주입(Dependency Injection)의 핵심
 
+- [Java문법실습](./day03/spring01/src/main/java/com/pmj/spring01/Spring01Application.java)
+
 #### 예외처리
 - 프로그램의 비정상적 종료를 막기 위한 보호막
 - 소스코드 상의 오류 : 에러/컴파일 에러. 수정이 용이
@@ -387,6 +391,7 @@
 - 모든 예외클래스는 Exception 클래스를 상속받아서 생성
 - 단순히 Exception 클래스로 예외처리 해도 무방
 
+
 ##### 예외던지기
 - 예외를 직접 처리하지 않고 상위 클래스나 메서드에게 처리를 인가
 
@@ -402,12 +407,22 @@
         예외처리
     }
     ```
+- [Java문법실습](./day03/spring02/src/main/java/com/pmj/spring02/Spring02Application.java)
 
 #### 객체지향 특징
 - 추가로 학습할 내용
 - 다형성, 상속, 캡슐화, 추상화
 
 #### 문자열, 시간타입 핸들링
+- [java.lang.String](https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html)
 - String 
     - 컴퓨터 -> 숫자, 사람 -> 문자
-    -
+
+- [Java문법실습](./day03/spring03/src/main/java/com/pmj/spring03/Spring03Application.java)
+
+#### 시간타입 핸들링
+- [java.time](https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/time/package-summary.html)
+- time
+    - 날짜와 시간을 처리할 때 사용
+
+- [Java문법실습](./day04/spring01/src/main/java/com/pmj/spring01/Spring01Application.java)
