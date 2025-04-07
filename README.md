@@ -176,6 +176,9 @@
         - Gradle for Java 설치
 
 ### Spring Boot 기본 실행(Java 프로젝트)
+- JDK 버전과 Spring Boot Initializr에 선택하는 JDK 버전이 일치해야
+    - OS에 JDK버전이 17버전이면 17선택
+
 - VS Code에서 명령팔레드 실행
     - Spring Initializr: Create a Maven Project
     - Specify Spring Boot version: 3.3.10
@@ -253,7 +256,7 @@
     - C:\Gradle 위치에 압축해제
     - sysdm.cpl 환경변수 GRADLE_HOME 경로 입력, 확인(JAVA_HOME과 동일)
 
-    <img src="./image/sb005.png" width="700">
+    <img src="./image/sb0005.png" width="700">
 
     - VS Code 설정
 
@@ -269,6 +272,18 @@
     - VS Code 재시작
 
 ## 5일차
+- spring Boot 웹실행
+    - Spring Initializr: Create a Gradle Project 실행
+    - Specify Spring Boot version: 3.4.4
+    - Specify project language: Java
+    - Input Group Id: com.hugo83(각자 설정할 것)
+    - Input Artifact Id: spring01
+    - Specify packaging type: Jar(Java archive, 압축파일)
+    - Specify Java version: 17
+    - Choose dependencies: Selected 1 dependencies
+        - Spring Web
+    - 저장위치 선택
+    - **새 창 열기** - Spring Boot 프로젝트가 루트폴더가 된 개발환경
 
 ## 6일차(06/26)
 

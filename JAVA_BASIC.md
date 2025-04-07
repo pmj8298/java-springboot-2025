@@ -539,6 +539,8 @@ public static void main(String[] args){
     // insert(), delete()
     ```
 
+- [JAVA문법실습](./day05/spring01/src/main/java/com/pmj/spring01/Spring01Application.java)
+
 #### GC(Garbage Collection)
 - C 등 절차적 언어에서는 객체를 생성해서 메모리를 사용하면, 개발자가 직접 해제해줘야 함
 - 메모리 누수가 발생함
@@ -549,3 +551,5 @@ public static void main(String[] args){
 - 파일쓰기에 `FileInputStream`, `FileOutPutStream`, `FileWriter`, `PrintWriter` 등의 클래스 사용
 - 입출력 예외가 발생할 수 있기때문에 클래스나 메서드에 `throws IOException` 을 추가해야 함
 - 파일읽기에 `FileInputStream`, `BufferedReader` 클래스 사용
+
+- [JAVA문법실습](./day05/spring02/src/main/java/com/pmj/spring02/Spring02Application.java)
