@@ -525,3 +525,21 @@ public static void main(String[] args){
     - 내부 반복으로 작업 처리
 
 - [Java문법실습](./day04/spring04/src/main/java/com/pmj/spring04/Spring04Application.java)
+
+#### StringBuilder
+- String 객체는 불변의 성질. 한번 생성되면 변경 불가
+- 연산자로 수정을 하면 기존 메모리는 두고, 다시 String 객체를 생성
+- 이를 해결하고자 하기 위해 만든 것 - StringBuilder
+- 리스트와 유사. 문자열 처리때문에 메모리 문제, 성능문제가 발생하면 StringBuilder, StringBuffer 사용권장
+
+    ```java
+    StringBuilder sb = new StringBuilder();
+    sb.append("Hello");
+    sb.append("Java");
+    // insert(), delete()
+    ```
+
+#### GC(Garbage Collection)
+- C 등 절차적 언어에서는 객체를 생성해서 메모리를 사용하면, 개발자가 직접 해제해줘야 함
+- 메모리 누수가 발생함
+- 객체지향 언어에서는 GC 만들어서 메모리를 언어가 직접 핸들링 처리
