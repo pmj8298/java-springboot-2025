@@ -132,7 +132,7 @@
 - MVC
     - View는 JSP포함, Thymeleaf, Mustach, HTML 등등 
 
-    <img src="./image/sb0001.png" width="700">
+    <img src="./image/sb001.png" width="700">
 
 ### Spring Boot 개발환경 설정
 - 필요요소
@@ -197,7 +197,7 @@
 
 - 기초문법
     - [JAVA기초문법](./JAVA_BASIC.md)
-    - 기본, 변수, 자료형, 연산자, 흐름제어어
+    - 기본, 변수, 자료형, 연산자, 흐름제어
 
 
 ## 2일차
