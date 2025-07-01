@@ -685,3 +685,5 @@
       	// Thymeleaf layout 의존성 추가. 250701. 신규추가
       implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
       ```
+   2. 레이아웃 템플릿 페이지 작성
+   3. board_list.html에 적용
