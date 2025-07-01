@@ -674,3 +674,14 @@
 
 4. 웹페이지 디자인
    1. resources/static: css, js, 정적html 파일들이 위치
+   2. static/main.css: 전체에서 사용할 css 파일
+   3. Bootstrap 적용
+      - https://getbootstrap.com Current v5.3.7 download 클릭
+      - http://github.com/twbs/icons/releases/tag/v1.13.1
+   4. board_detail.html: 부트스트랩 적용
+5. 전체 HTML에 디자인 적용
+   1. build.gradle에 thyleaf-layout 의존성 추가
+      ```gradle
+      	// Thymeleaf layout 의존성 추가. 250701. 신규추가
+      implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+      ```
