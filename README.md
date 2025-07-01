@@ -666,7 +666,11 @@
        - ReplyService, ReplyController 각각 생성, 작성
 
 3. thymeleaf 문법
+
    - ${}: 변수 표현식, 변수에 들어있는 값을 화면에 표시하는 기능. Model에 들어있는 데이터를 화면에 표시
    - @{}: URL링크 표현식. 정적인 링크 또는 라우팅되는 경로를 생성하는 기능
    - #{}: 메시지 표현식
    - thymeleaf 속성에만 사용가능: th:text, th:href ...
+
+4. 웹페이지 디자인
+   1. resources/static: css, js, 정적html 파일들이 위치

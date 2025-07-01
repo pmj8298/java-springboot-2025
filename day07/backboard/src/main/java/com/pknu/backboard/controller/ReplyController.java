@@ -32,7 +32,7 @@ public class ReplyController {
         Board board = this.boardService.getBoardOne(bno);
         this.replyService.setReply(board, content);
 
-        return String.format("redirect:/board/detail/%d", bno);
+        return String.format("redirect:/board/detail/%s", bno);
     }
 
 }
