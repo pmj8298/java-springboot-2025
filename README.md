@@ -835,6 +835,12 @@
 ### 스프링부트 Backboard 프로젝트(계속)
 
 2. Spring Boot Security(계속)
+
    1. 회원 로그인
+
       1. UserRole
-      2.
+      2. MemberSecurityService
+      3. signin.html
+      4. 회원로그인 기능
+
+   2. 회원 로그아웃 기능
