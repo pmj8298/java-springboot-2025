@@ -576,8 +576,8 @@
           - @Id: 테이블 PK
           - @GeneratedValue(strategy=GenerationType.AUTO)
 
-            - AUTO: MySQL Auto Increment
-            - IDENTITY: SQLServer Identity(1,1)
+            - AUTO: JPA가 자동선별. 사용지양
+            - IDENTITY: SQLServer Identity(1,1), MySQL Auto Increment
             - SEQUENCE: Oracle Sequence
             - H2 DB를 오라클 타입으로 사용하고, 나중에 운영DB를 오라클로 갈아타겠다!
 
@@ -782,6 +782,8 @@
    - JPA로 작업된 SpringBoot: html만 수정하면 끝!!
    - board_list.html의 제목 태그에 추가
 
+   <img src="./image/sb0016.png" width="600" height="350">
+
 2. Spring Boot Security: 회원가입, 로그인 등을 손쉽게 개발하도록 도와주는 의존성 라이브러리
 
    1. 시큐리티 설치
@@ -791,3 +793,38 @@
       implementation 'org.springframework.boot:spring-boot-starter-security'
       implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
       ```
+
+   2. 로그인 화면 및 H2 DB 사용 불가
+
+      - 기본 사용자: user
+      - 패스워드: SpringBoot 로그에 표시(ex: db3dcdae-21b3-4be6-b833-c37b9255d4a9)
+
+   3. Spring Boot Security 설정
+
+      1. security/SecurityConfig.java 클래스 생성
+
+   4. 웹 보안 용어
+      - CORS: Cross-Origin Resource Sharing
+        - 기본적으로 서로 다은 오리진(웹서버)인 경우 리소스를 서로 사용할 수 없음
+      - CSRF: Cross-Site Ewquest Forgery
+        - 명시적인 동의없이 사용자를 대신해서 웹 앱이 악의적인 행동을 취하는 공격
+   5. 스프링 시큐리티 설정(계속)
+      1. SecurityConfig 클래스 내 filterChain 메서드에 CSRF 등 관련 설정 추가
+   6. 회원 엔티티 생성
+
+      1. Member 엔티티 클래스 생성
+      2. MemberRepository 인터페이스 생성
+      3. MemberService 클래스 생성, 작성
+      4. MemberForm 클래스 생성, 작성
+      5. Membercontroller 클래스 생성, 작성
+      6. templates/signup.html 작성
+
+   7. MainController에 URL / 관련 메서드 작업
+      - @GetMapping("/")
+   8. 중복회원 방지 처리
+
+      1. MemberRepository 커스텀 메서드 추가
+      2. MemberSErvice 중복여부 체크 메서드 추가
+      3. MemberController, setSignUp 메서드 수정
+
+   9.
