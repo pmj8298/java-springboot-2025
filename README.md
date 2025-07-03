@@ -827,4 +827,14 @@
       2. MemberSErvice 중복여부 체크 메서드 추가
       3. MemberController, setSignUp 메서드 수정
 
-   9.
+   9. 회원 로그인/로그아웃
+      1. SecurityConfig 클래스에 로그인관련 filterChain 추가
+
+## 10일차
+
+### 스프링부트 Backboard 프로젝트(계속)
+
+2. Spring Boot Security(계속)
+   1. 회원 로그인
+      1. UserRole
+      2.

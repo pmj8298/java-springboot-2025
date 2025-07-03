@@ -24,7 +24,15 @@ public class SecurityConfig {
             .csrf((csrf)->csrf.ignoringRequestMatchers("/h2-console/**")) // h2-console URL은 CSRF에 예외라고 설정
             .headers((hdr) -> hdr.addHeaderWriter(new XFrameOptionsHeaderWriter(
                 XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN // h2-console이 frame방식(구시대방식)으로 개발되어 필요한 설정
-            )));
+            )))
+            // 로그인 URL 접근 지정. 로그인페이지URL와 로그인 성공 후 페이지URL 지정
+            .formLogin((fl) -> fl.loginPage("/member/Signin")
+                                 .defaultSuccessUrl("/"))
+            // 로그아웃 URL 지정
+            .logout((lo) -> lo.logoutUrl("/member/Signout")
+                              .logoutSuccessUrl("/")
+                              .invalidateHttpSession(true))
+        ; // ;을 분리해놓으면 chain method 추가시 간편함
 
         return http.build();
     }
