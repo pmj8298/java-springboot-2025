@@ -765,3 +765,16 @@
    - 맨 첫페이지, 마지막 페이지 버튼 추가
 
 2. 게시글 최신 글부터 나오도록 정렬
+
+   - BoardService getBoardList() 메서드에 정렬 로직 추가
+
+3. 게시글 개수만큼 번호가 나오도록 수정
+
+   1. 현재는 각 페이지마다 1~10까지 반복
+   2. 게시물번호 - 전체 게시물 개수 - (현재페이지번호 \* 10[페이지당 게시글 수]) - 페이지당 인덱스
+   3. board_list.html의 `<td th:text="${index.count}"></td>`를 수정
+
+4. Bootstrap 배지로 각 게시글마다 댓글개수 표시
+   - MyBatis로 작업된 SpringBoot: 쿼리변경, 도메인변경, html까지 세군데 수정
+   - JPA로 작업된 SpringBoot: html만 수정하면 끝!!
+   - board_list.html의 제목 태그에 추가
