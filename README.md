@@ -758,23 +758,36 @@
 
 ### 스프링부트 Backboard 프로젝트(계속)
 
-1. Paging 구현 계속
+1. 게시판 작업
+
+   1. Paging 구현 계속
 
    - 페이지 수가 10개 안넘도록 처리
    - 이전페이지, 다음페이지 사용여부 변경
    - 맨 첫페이지, 마지막 페이지 버튼 추가
 
-2. 게시글 최신 글부터 나오도록 정렬
+   2. 게시글 최신 글부터 나오도록 정렬
 
    - BoardService getBoardList() 메서드에 정렬 로직 추가
 
-3. 게시글 개수만큼 번호가 나오도록 수정
+   3. 게시글 개수만큼 번호가 나오도록 수정
 
    1. 현재는 각 페이지마다 1~10까지 반복
-   2. 게시물번호 - 전체 게시물 개수 - (현재페이지번호 \* 10[페이지당 게시글 수]) - 페이지당 인덱스
-   3. board_list.html의 `<td th:text="${index.count}"></td>`를 수정
+   1. 게시물번호 - 전체 게시물 개수 - (현재페이지번호 \* 10[페이지당 게시글 수]) - 페이지당 인덱스
+   1. board_list.html의 `<td th:text="${index.count}"></td>`를 수정
 
-4. Bootstrap 배지로 각 게시글마다 댓글개수 표시
+   1. Bootstrap 배지로 각 게시글마다 댓글개수 표시
+
    - MyBatis로 작업된 SpringBoot: 쿼리변경, 도메인변경, html까지 세군데 수정
    - JPA로 작업된 SpringBoot: html만 수정하면 끝!!
    - board_list.html의 제목 태그에 추가
+
+2. Spring Boot Security: 회원가입, 로그인 등을 손쉽게 개발하도록 도와주는 의존성 라이브러리
+
+   1. 시큐리티 설치
+
+      ```gradle
+      	// 스프링부트 시큐리티 의존성
+      implementation 'org.springframework.boot:spring-boot-starter-security'
+      implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+      ```
