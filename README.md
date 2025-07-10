@@ -1033,6 +1033,8 @@ https://github.com/user-attachments/assets/6c18f07c-a836-4d91-9f1c-8ff51d7b8fdb
 
    4. 관리자(사용자)가 쉽게 데이터를 입력할 수 있는 화면 개발
       1. layout.html에 관리자 메뉴 추가
+      2. AdminController 생성 후 @GetMApping() 메서드 생성
+      3. /admin/manage.html을 board_detail.html 복사해서 생성
 
 2. 나중에 추가해야할 부분
    1. [x] 회원가입 후 바로 로그인되는 기능

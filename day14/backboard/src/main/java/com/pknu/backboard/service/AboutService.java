@@ -25,4 +25,10 @@ public class AboutService {
      return about;
 
     }
+
+    public void putAbout(About about) {
+        this.aboutRepository.save(about);
+
+        System.out.println("저장됨");
+    }
 }
