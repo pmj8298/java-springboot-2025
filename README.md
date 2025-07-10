@@ -1040,7 +1040,19 @@ https://github.com/user-attachments/assets/6c18f07c-a836-4d91-9f1c-8ff51d7b8fdb
       6. AdminController @PostMapping("/history/{id}") 메서드 생성
       7. HistoryRepository, HistoryService 생성 작성
 
-2. 나중에 추가해야할 부분
+## 15일차
+
+### 스프링부트 Backboard 프로젝트(계속)
+
+1. 부트스트랩 프리테마 NiceSchool로 변경
+
+   1. 관리자 화면 history 수정 부분 완료
+
+2. AWS Lightsale로 업로드
+
+   1. Oracle DB 구축 -> H2
+
+3. 나중에 추가해야할 부분
    1. [x] 회원가입 후 바로 로그인되는 기능
    2. [x] 로그인한 사람 표시기능
    3. [ ] 테마(라이트, 다크) - 패스
