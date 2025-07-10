@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,13 +15,19 @@ import lombok.Setter;
 public class History {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
-
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "history_seq")
+    @SequenceGenerator(
+        name = "history_seq",
+        sequenceName = "history_seq",  
+        allocationSize = 1             
+    )
     private Long id;
+
+
     private String year;
+
     private String description;
 
     @ManyToOne
     private About about;
-
 }

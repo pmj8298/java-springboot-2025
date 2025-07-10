@@ -1,34 +1,41 @@
 package com.pknu.backboard.service;
 
+import java.util.Comparator;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import com.pknu.backboard.repository.AboutRepository;
 import com.pknu.backboard.entity.About;
+import com.pknu.backboard.entity.History;
+import com.pknu.backboard.repository.AboutRepository;
 
 import lombok.RequiredArgsConstructor;
 
-
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor  // Lombok에서 파라미터 포함된 생성자를 자동생성
 public class AboutService {
 
     private final AboutRepository aboutRepository;
 
-    // public AboutService(AboutRepository aboutRepository){
-    //     this.aboutRepository = ;
+    // @RequiredArgsConstructor
+    // public AboutService(AboutRepository aboutRepository) {
+    //     this.aboutRepository = aboutRepository;
     // }
-    // @RequiredArgsConstructor 이거랑 둘 중 하나만 써야함
 
-    public About getAbout(){
-     About about = this.aboutRepository.findAll().get(0);
+    public About getAbout() {
+        About about = this.aboutRepository.findAll().get(0);
 
-     return about;
+        // ID값으로 또는 year로 오름차순 정렬을 다시하고 할당
+        List<History> historyList = about.getHistoryList();
+        historyList.sort(Comparator.comparing(History::getId));
+        about.setHistoryList(historyList);
 
+        return about;
     }
 
     public void putAbout(About about) {
         this.aboutRepository.save(about);
 
-        System.out.println("저장됨");
+        System.out.println("저장완료!");
     }
 }

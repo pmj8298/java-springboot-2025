@@ -22,7 +22,7 @@
     <section id="about_mng" class="new section mx-5">
       <div class="row">
         <div class="col">
-          <div class="card mb-2">
+          <div class="card mb-3">
             <div class="card-body">
               <h5>About 관리</h5>
               <form
@@ -73,6 +73,67 @@
                     type="submit"
                     class="btn btn-sm btn-success"
                     value="저장"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h5 th:text="|${#lists.size(about.historyList)}개의 히스토리|"></h5>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="card my-2" th:each="history : ${about.historyList}">
+            <div class="card-body">
+              <div class="card-title" th:text="${history.year}"></div>
+              <div class="card-text" th:text="${history.description}"></div>
+              <div class="text-end">
+                <a
+                  th:href="@{|/admin/history/${about.id}|}"
+                  class="btn btn-sm btn-outline-success"
+                  sec:authourize="isAuthenticated()"
+                  th:text="수정"
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="card mb-3">
+            <div class="card-body">
+              <form method="post" th:action="@{|/admin/history/${about.id}|}">
+                <div class="mb-2">
+                  <label for="year" class="form-label">년도</label>
+                  <input
+                    type="text"
+                    id="year"
+                    name="year"
+                    class="form-control"
+                  />
+                </div>
+                <div class="mb-2">
+                  <label for="description" class="form-label">설명</label>
+                  <input
+                    type="text"
+                    id="description"
+                    name="description"
+                    class="form-control"
+                  />
+                </div>
+                <div class="text-end">
+                  <input
+                    type="submit"
+                    value="저장"
+                    class="btn btn-sm btn-success"
                   />
                 </div>
               </form>
