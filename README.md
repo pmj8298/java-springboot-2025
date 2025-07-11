@@ -1047,6 +1047,13 @@ https://github.com/user-attachments/assets/6c18f07c-a836-4d91-9f1c-8ff51d7b8fdb
 1. 부트스트랩 프리테마 NiceSchool로 변경
 
    1. 관리자 화면 history 수정 부분 완료
+      - AdminController에 히스토리 수정화면으로 넘어가는 GetMapping() 추가
+      - HistoryService에 리포지토리에서 데이터 가져오는 메서드 추가
+      - HistoryRepository에 한건 가져오는 메서드 추가
+      - /admin/history.html 작성
+      - AdminController에 히스토리 수정가능한 PostMapping() 추가
+   2. 로그인한 관리자만 수정할 수 있도록
+      - `@PreAuthorize` 어노테이션으로 처리
 
 2. AWS Lightsale로 업로드
 
