@@ -1047,11 +1047,13 @@ https://github.com/user-attachments/assets/6c18f07c-a836-4d91-9f1c-8ff51d7b8fdb
 1. 부트스트랩 프리테마 NiceSchool로 변경
 
    1. 관리자 화면 history 수정 부분 완료
+
       - AdminController에 히스토리 수정화면으로 넘어가는 GetMapping() 추가
-      - HistoryService에 리포지토리에서 데이터 가져오는 메서드 추가
+      - HistoryService 에 리포지토리에서 데이터 가져오는 메서드 추가
       - HistoryRepository에 한건 가져오는 메서드 추가
       - /admin/history.html 작성
       - AdminController에 히스토리 수정가능한 PostMapping() 추가
+
    2. 로그인한 관리자만 수정할 수 있도록
       - `@PreAuthorize` 어노테이션으로 처리
 
@@ -1059,86 +1061,135 @@ https://github.com/user-attachments/assets/6c18f07c-a836-4d91-9f1c-8ff51d7b8fdb
 
    1. AWS 회원가입
    2. LightSale
-
       1. 인스턴스 생성
       2. 리전 확인
-      3. Linux/Unix > OS전용 > Ubuntu 22.x 선탣
+      3. Linux/Unix > OS전용 > Ubuntu 22.x 선택
       4. 인스턴스 플랜 선택(90일 무료)
       5. 인스턴스 이름 지정 > 생성버튼
       6. 인스턴스 퍼블릭 고정 IP 주소 확인
-
    3. 네트워크
-      1. IPv4 방화벽 설정: 9070 포트 오픈
+
+      1. IPv4 방화벽 설정 : 9070 포트 오픈
+
    4. 인스턴스만 삭제하면 90일 이후 비용발생 안함
+
    5. 외부 서버접속 SSH키 발급
 
       1. 아이디 > 계정
       2. SSH 키 탭 진입
-      3. 기본키 다운로드. \*.pem 파일 다운로드
+      3. 기본키를 다운로드. \*.pem
 
-   6. pem을 ppk로 변경
-
+   6. pem 을 ppk로 변경
       1. PuTTYgen 실행 > Load > AWS에서 받은 키를 선택
       2. Save private key로 PPK로 저장
-
    7. PuTTY
 
-      1. PuTTY 터미널 툴 설치: https://www.putty.org/
+      1. PuTTY 터미널 툴 설치 : https://www.putty.org/
       2. 실행
       3. AWS 고정아이피 host에 입력
       4. Connection > SSH > Auth > Credential > ppk 파일 선택
-      5. login as: ubuntu 입력 엔터
+      5. login as : ubuntu 입력 엔터
 
-   8. FTP: https://filezilla-project.org/download.php?type=client
+   8. FTP : https://filezilla-project.org/
+
       1. Client 설치
       2. 사이트관리자 > 새 사이트
-         - 프로토콜, SFTP: SSH File Transfer Protocol로 변경
-         - 호스트: AWS 퍼블릭 IP
-         - 로그온 유형: 키 파일 선택
-         - 사용자: Ubuntu
-         - 키파일: _.pem / _.ppk 중 선택
+         - 프로토콜, SFTP : SSH File Transfer Protocol로 변경
+         - 호스트 : AWS 퍼블릭 IP
+         - 로그온 유형 : 키 파일 선택
+         - 사용자 : Ubuntu
+         - 키파일 : _.pem / _.ppk 중 선택
          - 연결
+
    9. Ubuntu에 서버환경 설정
 
       1. 현재 호스트명 ip-private_ip
       2. hostnamectl 명령어로 변경
+
          ```shell
-         > sudo hostnamestl set-hostname <변경할호스트명>
+         > sudo hostnamectl set-hostname <변경할호스트명>
          > sudo reboot
          ```
+
       3. 한국시간으로 변경
+
          ```shell
-         sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+         > sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
          ```
+
       4. JDK 설치
 
          ```shell
-         > sudo apt update
-         > sudo apt upgrade
-         > java --version
-         > sudo apt install openjdk-17-jdk
+         ~$ sudo apt update  // 1
+
+         ~$ sudo apt upgrade   // 나중에 필요할 때 업그레이드
+
+         ~$ java --version // 2
+
+         ~$ sudo apt install openjdk-17-jdk  // 3
+         Do you want to continue? [Y/n] y
+         No VM guests are running outdated hypervisor (qemu) binaries on this host.
+         ubuntu@hugomgsung:~$
          ```
 
       5. VS Code에서 jar파일 생성되도록 빌드
 
-         1. test 폴더 내 java 파일의 @SpringbootTest @Test부분 주석처리(빌드 오류)
-         2. application.properties, build.gradle을 배보할 내용으로 수정
+         1. test 폴더 내 java파일의 @SpringbootTest @Test 부분 주석처리(빌드 오류)
+         2. **application.properties**, build.gradle을 배포할 내용으로 수정
          3. Gradle for java > Tasks > build > build 먼저 처리
          4. Gradle for java > Tasks > build > bootJar 실행
          5. build/libs/\*SNAPSHOT.jar 파일 생성 확인
 
       6. application.properties 설정
+
          1. Ubuntu에 맞게 변경
          2. build, bootJar 다시 수행
+
       7. FTP로 배포
          1. sbserver 폴더 생성
-         2. \*SNAPSHOT.jar 복사
+         2. \*SNAPSHOP.jar 복사
          3. 명령어로 실행
+
             ```shell
             ~$ java -jar backboard-1.0.2-SNAPSHOT.jar
+            ...
             ```
 
-3. 나중에 추가해야할 부분
+   10. 백그라운드에서 서버 실행 쉘 작성
+
+       1. nano start.sh 쉘 파일 생성.(반드시 Ubuntu에서 작성할 것)
+
+          ```shell
+          #!/bin/bash
+
+          JAR=backboard-1.0.2-SNAPSHOT.jar
+
+          nohup java -jar $JAR > /dev/null 2>&1 &
+          ```
+
+       2. nano stop.sh 쉘 작성
+
+          ```shell
+          #!/bin/bash
+
+          BB_PID=$(ps -ef | grep java | grep backboard | awk '{print $2}')
+
+          if [ -z "$BB_PID" ];
+          then
+              echo "BACKBOARD is not running"
+          else
+              kill -9 $BB_PID
+              echo "BACKBOARD terminated!"
+          fi
+          ```
+
+       3. chmod +x \*.sh 실행
+
+3. 추가오류 확인
+
+   1. admin/manage, intro/about 발생하는 내부서버(500) 오류 확인 수정
+
+4. 나중에 추가해야할 부분
    1. [x] 회원가입 후 바로 로그인되는 기능
    2. [x] 로그인한 사람 표시기능
    3. [ ] 테마(라이트, 다크) - 패스

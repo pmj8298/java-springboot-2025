@@ -2,13 +2,14 @@ package com.pknu.backboard.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.pknu.backboard.entity.About;
 import com.pknu.backboard.service.AboutService;
 
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.web.bind.annotation.GetMapping;
 
 @RequestMapping("/intro")
 @Controller
@@ -20,7 +21,7 @@ public class IntroController {
     @GetMapping("/about")
     public String aboutPage(Model model) {
         // DB에서 동적으로 들고올 데이터 가져오기
-        About about = aboutService.getAbout();
+        About about = aboutService.getAboutLatest();
 
         model.addAttribute("about", about); // FE로 넘겨줄 준비 끝        
         return "intro/about"; // intro/about.html 리턴
