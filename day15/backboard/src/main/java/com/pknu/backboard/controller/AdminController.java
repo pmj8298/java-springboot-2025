@@ -3,6 +3,7 @@ package com.pknu.backboard.controller;
 import java.security.Principal;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import com.pknu.backboard.service.AboutService;
 import com.pknu.backboard.service.HistoryService;
 
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -32,22 +34,31 @@ public class AdminController {
 
     @PreAuthorize("isAuthenticated()") // 계정이 없으면 접근불가
     @GetMapping("/manage")
-    public String managePage(About about) {        
-        About opAbout = aboutService.getAbout();
+    public String managePage(About about) {    
+        About opAbout = aboutService.getAboutLatest();   
+        // About opAbout = aboutService.getAbout();
+
+        try {
+            
+            about.setTitle(opAbout.getTitle());
+            about.setSubtitle(opAbout.getSubtitle());
+            about.setOurMission(opAbout.getOurMission());
+            about.setOurVision(opAbout.getOurVision());
+            about.setSchoolImgPath(opAbout.getSchoolImgPath());
+    
+            // 히스토리 할당
+            List<History> historyList = opAbout.getHistoryList();
+            if(historyList.size() > 0){
+
+                historyList.sort(Comparator.comparing(History::getYear));  // ID값을 오름차순 정렬을 다시 해줌
+            }
+            about.setHistoryList(historyList);
+    
+            // PK로 전달 필요
+            about.setId(opAbout.getId());  
+        } catch (Exception e) {
+        }
         
-        about.setTitle(opAbout.getTitle());
-        about.setSubtitle(opAbout.getSubtitle());
-        about.setOurMission(opAbout.getOurMission());
-        about.setOurVision(opAbout.getOurVision());
-        about.setSchoolImgPath(opAbout.getSchoolImgPath());
-
-        // 히스토리 할당
-        List<History> historyList = opAbout.getHistoryList();
-        historyList.sort(Comparator.comparing(History::getYear));  // ID값을 오름차순 정렬을 다시 해줌
-        about.setHistoryList(historyList);
-
-        // PK로 전달 필요
-        about.setId(opAbout.getId());  
 
         return "admin/manage";  // admin/manage.html
     }

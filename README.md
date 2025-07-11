@@ -1098,6 +1098,45 @@ https://github.com/user-attachments/assets/6c18f07c-a836-4d91-9f1c-8ff51d7b8fdb
          - 사용자: Ubuntu
          - 키파일: _.pem / _.ppk 중 선택
          - 연결
+   9. Ubuntu에 서버환경 설정
+
+      1. 현재 호스트명 ip-private_ip
+      2. hostnamectl 명령어로 변경
+         ```shell
+         > sudo hostnamestl set-hostname <변경할호스트명>
+         > sudo reboot
+         ```
+      3. 한국시간으로 변경
+         ```shell
+         sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+         ```
+      4. JDK 설치
+
+         ```shell
+         > sudo apt update
+         > sudo apt upgrade
+         > java --version
+         > sudo apt install openjdk-17-jdk
+         ```
+
+      5. VS Code에서 jar파일 생성되도록 빌드
+
+         1. test 폴더 내 java 파일의 @SpringbootTest @Test부분 주석처리(빌드 오류)
+         2. application.properties, build.gradle을 배보할 내용으로 수정
+         3. Gradle for java > Tasks > build > build 먼저 처리
+         4. Gradle for java > Tasks > build > bootJar 실행
+         5. build/libs/\*SNAPSHOT.jar 파일 생성 확인
+
+      6. application.properties 설정
+         1. Ubuntu에 맞게 변경
+         2. build, bootJar 다시 수행
+      7. FTP로 배포
+         1. sbserver 폴더 생성
+         2. \*SNAPSHOT.jar 복사
+         3. 명령어로 실행
+            ```shell
+            ~$ java -jar backboard-1.0.2-SNAPSHOT.jar
+            ```
 
 3. 나중에 추가해야할 부분
    1. [x] 회원가입 후 바로 로그인되는 기능

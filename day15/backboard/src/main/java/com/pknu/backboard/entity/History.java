@@ -1,5 +1,6 @@
 package com.pknu.backboard.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,6 +25,7 @@ public class History {
     private Long id;
 
 
+    @Column(name="years")
     private String year;
 
     private String description;

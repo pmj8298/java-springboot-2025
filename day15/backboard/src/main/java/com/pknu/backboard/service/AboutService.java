@@ -2,6 +2,7 @@ package com.pknu.backboard.service;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -37,5 +38,16 @@ public class AboutService {
         this.aboutRepository.save(about);
 
         System.out.println("저장완료!");
+    }
+
+    // 최신 내용이 없으면 빈값으로 전달
+    public About getAboutLatest() {
+        Optional<About> opAbout = aboutRepository.findById(1L);
+
+        if(opAbout.isPresent()){
+            return opAbout.get();
+        }else{
+            return new About();
+        }
     }
 }
