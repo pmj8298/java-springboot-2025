@@ -1057,7 +1057,47 @@ https://github.com/user-attachments/assets/6c18f07c-a836-4d91-9f1c-8ff51d7b8fdb
 
 2. AWS Lightsale로 업로드
 
-   1. Oracle DB 구축 -> H2
+   1. AWS 회원가입
+   2. LightSale
+
+      1. 인스턴스 생성
+      2. 리전 확인
+      3. Linux/Unix > OS전용 > Ubuntu 22.x 선탣
+      4. 인스턴스 플랜 선택(90일 무료)
+      5. 인스턴스 이름 지정 > 생성버튼
+      6. 인스턴스 퍼블릭 고정 IP 주소 확인
+
+   3. 네트워크
+      1. IPv4 방화벽 설정: 9070 포트 오픈
+   4. 인스턴스만 삭제하면 90일 이후 비용발생 안함
+   5. 외부 서버접속 SSH키 발급
+
+      1. 아이디 > 계정
+      2. SSH 키 탭 진입
+      3. 기본키 다운로드. \*.pem 파일 다운로드
+
+   6. pem을 ppk로 변경
+
+      1. PuTTYgen 실행 > Load > AWS에서 받은 키를 선택
+      2. Save private key로 PPK로 저장
+
+   7. PuTTY
+
+      1. PuTTY 터미널 툴 설치: https://www.putty.org/
+      2. 실행
+      3. AWS 고정아이피 host에 입력
+      4. Connection > SSH > Auth > Credential > ppk 파일 선택
+      5. login as: ubuntu 입력 엔터
+
+   8. FTP: https://filezilla-project.org/download.php?type=client
+      1. Client 설치
+      2. 사이트관리자 > 새 사이트
+         - 프로토콜, SFTP: SSH File Transfer Protocol로 변경
+         - 호스트: AWS 퍼블릭 IP
+         - 로그온 유형: 키 파일 선택
+         - 사용자: Ubuntu
+         - 키파일: _.pem / _.ppk 중 선택
+         - 연결
 
 3. 나중에 추가해야할 부분
    1. [x] 회원가입 후 바로 로그인되는 기능
