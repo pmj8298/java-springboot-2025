@@ -1194,7 +1194,15 @@ https://github.com/user-attachments/assets/6c18f07c-a836-4d91-9f1c-8ff51d7b8fdb
 
 ### 스프링부트 Backboard 프로젝트 (계속)
 
-4. 나중에 추가해야할 부분
+2. 소셜로그인 OAuth2(Open Authorization 2.0)
+
+   1. 의존성 추가
+
+      ```gradle
+      implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+      ```
+
+3. 나중에 추가해야할 부분
    1. [x] 회원가입 후 바로 로그인되는 기능
    2. [x] 로그인한 사람 표시기능
    3. [ ] 테마(라이트, 다크) - 패스
