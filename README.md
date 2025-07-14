@@ -1146,6 +1146,7 @@ https://github.com/user-attachments/assets/6c18f07c-a836-4d91-9f1c-8ff51d7b8fdb
          2. build, bootJar 다시 수행
 
       7. FTP로 배포
+
          1. sbserver 폴더 생성
          2. \*SNAPSHOP.jar 복사
          3. 명령어로 실행
@@ -1188,6 +1189,10 @@ https://github.com/user-attachments/assets/6c18f07c-a836-4d91-9f1c-8ff51d7b8fdb
 3. 추가오류 확인
 
    1. admin/manage, intro/about 발생하는 내부서버(500) 오류 확인 수정
+
+## 16일차
+
+### 스프링부트 Backboard 프로젝트 (계속)
 
 4. 나중에 추가해야할 부분
    1. [x] 회원가입 후 바로 로그인되는 기능
